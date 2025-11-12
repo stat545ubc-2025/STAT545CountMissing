@@ -1,0 +1,51 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# STAT545CountMissing package
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of STAT545CountMissing is to count the number of missing values by group.
+
+## Installation
+
+You can install the development version of STAT545CountMissing from [GitHub](https://github.com/) with:
+
+``` r
+devtools::install_github("Nanboy-Ronan/STAT545CountMissing")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(STAT545CountMissing)
+library(palmerpenguins)
+library(tidyverse)
+count_all_missing_by_group(airquality, Month)
+```
+The following example shows how pipe works with this function.
+
+```{r}
+airquality |> count_all_missing_by_group(Month)
+```
+
+The final example shows the role of `.groups`, which let usre to  keep the output grouped by the grouping columns.
+```{r}
+count_all_missing_by_group(airquality, Month, .groups = "keep")
+```
+

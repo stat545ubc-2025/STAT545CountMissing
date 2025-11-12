@@ -1,1 +1,84 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/315-s1UC)
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# STAT545CountMissing package
+
+<!-- badges: start -->
+
+<!-- badges: end -->
+
+The goal of STAT545CountMissing is to count the number of missing values
+by group.
+
+## Installation
+
+You can install the development version of STAT545CountMissing from
+[GitHub](https://github.com/) with:
+
+``` r
+devtools::install_github("Nanboy-Ronan/STAT545CountMissing")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+``` r
+library(STAT545CountMissing)
+library(palmerpenguins)
+#> 
+#> Attaching package: 'palmerpenguins'
+#> The following objects are masked from 'package:datasets':
+#> 
+#>     penguins, penguins_raw
+library(tidyverse)
+#> ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+#> ✔ dplyr     1.1.4     ✔ readr     2.1.5
+#> ✔ forcats   1.0.1     ✔ stringr   1.5.2
+#> ✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+#> ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+#> ✔ purrr     1.1.0
+#> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+#> ✖ dplyr::filter() masks stats::filter()
+#> ✖ dplyr::lag()    masks stats::lag()
+#> ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+count_all_missing_by_group(airquality, Month)
+#> # A tibble: 5 × 6
+#>   Month Ozone Solar.R  Wind  Temp   Day
+#>   <int> <int>   <int> <int> <int> <int>
+#> 1     5     5       4     0     0     0
+#> 2     6    21       0     0     0     0
+#> 3     7     5       0     0     0     0
+#> 4     8     5       3     0     0     0
+#> 5     9     1       0     0     0     0
+```
+
+The following example shows how pipe works with this function.
+
+``` r
+airquality |> count_all_missing_by_group(Month)
+#> # A tibble: 5 × 6
+#>   Month Ozone Solar.R  Wind  Temp   Day
+#>   <int> <int>   <int> <int> <int> <int>
+#> 1     5     5       4     0     0     0
+#> 2     6    21       0     0     0     0
+#> 3     7     5       0     0     0     0
+#> 4     8     5       3     0     0     0
+#> 5     9     1       0     0     0     0
+```
+
+The final example shows the role of `.groups`, which let usre to keep
+the output grouped by the grouping columns.
+
+``` r
+count_all_missing_by_group(airquality, Month, .groups = "keep")
+#> # A tibble: 5 × 6
+#> # Groups:   Month [5]
+#>   Month Ozone Solar.R  Wind  Temp   Day
+#>   <int> <int>   <int> <int> <int> <int>
+#> 1     5     5       4     0     0     0
+#> 2     6    21       0     0     0     0
+#> 3     7     5       0     0     0     0
+#> 4     8     5       3     0     0     0
+#> 5     9     1       0     0     0     0
+```
