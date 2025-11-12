@@ -1,9 +1,9 @@
 Package: STAT545CountMissing
-Title: What the Package Does (One Line, Title Case)
+Title: Count the number of missing values by group
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Ruinan", "Jin", , "first.last@example.com", role = c("aut", "cre"))
+Description: Given a data frame `data` and a column `group`, `count_all_missing_by_group()` creates a new data frame with one row per level of `group`. The first column of the output data frame contains the levels of `group`, and the rest of the columns contain the number of missing values for all columns in `data` except `group`.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
