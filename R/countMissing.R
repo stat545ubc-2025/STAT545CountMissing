@@ -21,6 +21,8 @@
 #' `group`. See `summarize()` documentation in
 #' `dplyr` for a full list of options.
 #'
+#'@import dplyr
+#'
 #' @return A data frame or tibble with the
 #' levels of `group`, and the  number of NAs within
 #' each level of `group` for all columns in
