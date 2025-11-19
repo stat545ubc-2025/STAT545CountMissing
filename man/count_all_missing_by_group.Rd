@@ -40,3 +40,10 @@ This function is
 a wrapper around the \code{group_by()} and
 \code{summarize()} functions in the \code{dplyr} package.
 }
+\examples{
+library(STAT545CountMissing)
+library(palmerpenguins)
+count_all_missing_by_group(airquality, Month)
+airquality |> count_all_missing_by_group(Month)
+
+}

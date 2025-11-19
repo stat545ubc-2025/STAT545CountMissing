@@ -21,12 +21,19 @@
 #' `group`. See `summarize()` documentation in
 #' `dplyr` for a full list of options.
 #'
-#'@import dplyr
+#' @import dplyr
 #'
 #' @return A data frame or tibble with the
 #' levels of `group`, and the  number of NAs within
 #' each level of `group` for all columns in
 #' `data` except `group`.
+#'
+#' @examples
+#' library(STAT545CountMissing)
+#' library(palmerpenguins)
+#' count_all_missing_by_group(airquality, Month)
+#' airquality |> count_all_missing_by_group(Month)
+#'
 #' @export
 count_all_missing_by_group <- function(data, group_col, .groups = "drop") {
 
