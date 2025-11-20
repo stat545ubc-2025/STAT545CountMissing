@@ -47,6 +47,6 @@ count_all_missing_by_group <- function(data, group_col, .groups = "drop") {
   }
 
   data |> group_by({{ group_col }}) |>
-    summarize(across(everything(), ~sum(is.na(.x))),
+    dplyr::summarize(across(everything(), ~sum(is.na(.x))),
               .groups = .groups)
 }
