@@ -8,7 +8,9 @@
 <!-- badges: end -->
 
 The goal of STAT545CountMissing is to count the number of missing values
-by group.
+by group. This package contains one function named
+`count_all_missing_by_group`, where user can count the number of missing
+values with the option of displaying by group.
 
 ## Installation
 
@@ -16,12 +18,16 @@ You can install the development version of STAT545CountMissing from
 [GitHub](https://github.com/) with:
 
 ``` r
-devtools::install_github("Nanboy-Ronan/STAT545CountMissing")
+devtools::install_github("stat545ubc-2025/STAT545CountMissing")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+### Example 1
+
+This is a basic example which shows you how to solve a common problem.
+We use the `airquality` dataset and count the number of missing values
+group by `Month`.
 
 ``` r
 library(STAT545CountMissing)
@@ -53,7 +59,10 @@ count_all_missing_by_group(airquality, Month)
 #> 5     9     1       0     0     0     0
 ```
 
-The following example shows how pipe works with this function.
+### Example 2
+
+The following example shows how pipe works with this function. All
+settings are the same as above.
 
 ``` r
 airquality |> count_all_missing_by_group(Month)
@@ -67,7 +76,9 @@ airquality |> count_all_missing_by_group(Month)
 #> 5     9     1       0     0     0     0
 ```
 
-The final example shows the role of `.groups`, which let usre to keep
+### Example 3
+
+The final example shows the role of `.groups`, which let user to keep
 the output grouped by the grouping columns.
 
 ``` r
